@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import requests
+
+def get_exchange_rate():
+    try:
+        response = requests.get('https://api.exchangerate-api.com/v4/latest/USD')
+        data = response.json()
+        return data['rates']['TRY']
+    except:
+        return 0
+
+kur = get_exchange_rate()
+print(kur)
